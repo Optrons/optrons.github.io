@@ -1,0 +1,206 @@
+//* CSS Variables */
+:root {
+  --primary: #ddd; /* nestrādā neviens var */
+  --dark: #3C3742;
+  --light: #fff;
+  --shadow: 0px 1px 5px #686868;
+}
+
+html {
+ 
+  background: url(img/pex.jpeg) no-repeat center center fixed; 
+  
+  background-size: cover;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3C3742;
+}
+
+body {
+  
+  margin: 30px 50px;
+  line-height: 1.4;
+}
+
+.btn {
+  background: #3C3742;
+  color: #fff;
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+img {
+  max-width: 100%;   /* lai visi attēli paliktu savos boxos*/
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;  /* lai neliktu katram img margin*/
+}
+
+/* lapas navigācijas daļa-formatēšana*/
+.main-nav ul {
+  display: grid;
+  grid-gap: 20px;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);/* Navigācija sastāv no 4kolonām -attiecīgi četri fr1*/
+}
+
+.main-nav a {
+  background: #ddd;
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: #3C3742;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow: 0px 1px 5px #686868;
+}
+
+.main-nav a:hover {
+  background: #3C3742;
+  color: #fff;
+}
+
+/* lapas TOP konteinera formatēšana*/
+.top-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    'showcase showcase top-box-a'
+    'showcase showcase top-box-b';   /* kolonu un rindu izkartojums*/
+}
+
+/* lapas TOP konteiners showcase*/
+.showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: url(img/showcase.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  display: flex; /* lai varētu formēt tekstu iekšā showcase*/
+  flex-direction: column;  /*Pēc flex texts tiek samest garās kolonās*/
+  align-items: start; /*saformē tekstu un novieto to centrā*/
+  justify-content: center;
+  box-shadow: 0px 1px 5px #686868;
+}
+
+.showcase h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.showcase p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: #fff;
+}
+
+/* lapas TOP box*/
+.top-box {
+  background: #ddd;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: 0px 1px 5px #686868;
+  padding: 1.5rem;
+}
+
+.top-box .price {
+  font-size: 2.5rem;
+}
+
+.top-box-a {
+  grid-area: top-box-a;
+}
+
+.top-box-b {
+  grid-area: top-box-b;
+}
+
+/* Boxes */
+.boxes {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  /* lapas box izkārtojums*/
+}
+
+.box {
+  background: #ddd;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: 0px 1px 5px #686868;
+}
+
+/* lapas info daļa*/
+.info {
+  background: #ddd;
+  box-shadow: 0px 1px 5px #686868;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+}
+
+/* lapas portfolio daļa-bildes*/
+.portfolio {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.portfolio img {
+  width: 100%;
+  box-shadow: 0px 1px 5px #686868;
+}
+
+/* lapas footer daļa*/
+footer {
+  margin-top: 2rem;
+  background: #3C3742;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+   box-shadow: 0px 1px 5px #686868;
+}
+
+/* responsive web parametru uzstādīšana */
+@media (max-width: 700px) {
+  .top-container {
+    grid-template-areas:
+      'showcase showcase'
+      'top-box-a top-box-b';
+  }
+
+  .showcase h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-nav ul {
+    grid-template-columns: 1fr;
+  }
+
+  .info {
+    grid-template-columns: 1fr;
+  }
+
+  .info .btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .top-container {
+    grid-template-areas:
+      'showcase'
+      'top-box-a'
+      'top-box-b';
+  }
+}
